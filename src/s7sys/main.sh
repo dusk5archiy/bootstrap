@@ -40,15 +40,22 @@ fi
 
 # -----------------------------------------------------------------------------
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+export TMP="$HOME/tmp"
+export TEMP="$TMP"
+
+mkdir -p "$XDG_CONFIG_HOME" \
+  "$XDG_DATA_HOME" \
+  "$XDG_CACHE_HOME" \
+  "$XDG_STATE_HOME" \
+  "$TMP"
+
 if [[ "$ID" == "msys2" ]]; then
   export APPDATA=$(cygpath -w "$HOME/AppData/Roaming")
   export LOCALAPPDATA=$(cygpath -w "$HOME/AppData/Local")
-  export XDG_CONFIG_HOME="$HOME/.config"
-  export XDG_DATA_HOME="$HOME/.local/share"
-  export XDG_CACHE_HOME="$HOME/.cache"
-  export XDG_STATE_HOME="$HOME/.local/state"
-  export TMP="$HOME/tmp"
-  export TEMP="$HOME/tmp"
   export ORIGINAL_USERPROFILE="/$SYSTEM_DRIVE_LETTER/Users/$(/usr/bin/whoami)"
   export USERPROFILE=$(cygpath -w "$HOME/profile")
   export DESKTOP="$USERPROFILE\Desktop"
@@ -57,11 +64,6 @@ if [[ "$ID" == "msys2" ]]; then
   mkdir -p "$HOME/AppData" \
     "$APPDATA" \
     "$LOCALAPPDATA" \
-    "$XDG_CONFIG_HOME" \
-    "$XDG_DATA_HOME" \
-    "$XDG_CACHE_HOME" \
-    "$XDG_STATE_HOME" \
-    "$TMP" \
     "$USERPROFILE" \
     "$DESKTOP" \
     "$DOCUMENTS" \
@@ -69,18 +71,6 @@ if [[ "$ID" == "msys2" ]]; then
     "$ORIGINAL_HOME/.ssh"
   touch "$ORIGINAL_HOME/.ssh/authorized_keys"
 else
-  export XDG_CONFIG_HOME="$HOME/.config"
-  export XDG_DATA_HOME="$HOME/.local/share"
-  export XDG_CACHE_HOME="$HOME/.cache"
-  export XDG_STATE_HOME="$HOME/.local/state"
-  export TMP="$HOME/tmp"
-  export TEMP="$HOME/tmp"
-
-  mkdir -p "$XDG_CONFIG_HOME"
-  mkdir -p "$XDG_DATA_HOME"
-  mkdir -p "$XDG_CACHE_HOME"
-  mkdir -p "$XDG_STATE_HOME"
-  mkdir -p "$TMP"
   mkdir -p "$HOME/.ssh"
 fi
 
