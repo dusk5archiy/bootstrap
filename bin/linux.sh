@@ -10,6 +10,7 @@ fi
 
 rm -rf "$HOME/s7sys"
 cp -r "./src"/* "$HOME/"
+find "$S7SYS_DIR/s7sys" -type f -name "*.sh" -exec chmod +x {} +
 
 s='. $HOME/s7sys/main.sh'
 s=$(printf '%s\n' "$s" | sed 's/[.[\*^$\/&]/\\&/g')
@@ -19,4 +20,4 @@ sudo tee -a $HOME/.bashrc >>/dev/null <<'EOF'
 . $HOME/s7sys/main.sh
 EOF
 
-echo 'Restart the shell to finish the installation.'
+echo "Restart the shell to finish the installation."

@@ -1,0 +1,1 @@
+export YAZI_CONFIG_HOME="$XDG_CONFIG_HOME/yazi"
