@@ -20,7 +20,7 @@ msys2)
 ubuntu)
   pkg-get.sh python
   pkg-install.sh \
-    fd-find fzf gcc git ripgrep unzip npm
+    fd-find fzf gcc git ripgrep unzip npm snap
 
   $sudo snap install --classic nvim
   $sudo snap install --classic node
