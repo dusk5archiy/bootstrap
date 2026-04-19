@@ -19,12 +19,15 @@ msys2)
   ;;
 ubuntu)
   pkg-get.sh python
+  $sudo add-apt-repository ppa:neovim-ppa/unstable -y
+  $sudo apt update
   pkg-install.sh \
-    fd-find fzf gcc git ripgrep unzip npm snapd
+    fd-find fzf gcc git ripgrep unzip neovim npm
 
-  $sudo systemctl start snapd
-  $sudo snap install --classic nvim
-  $sudo snap install --classic node
+  # pkg-install.sh snapd
+  # $sudo systemctl start snapd
+  # $sudo snap install --classic nvim
+  # $sudo snap install --classic node
 
   $sudo npm cache clean --force
   $sudo npm install -g tree-sitter-cli
