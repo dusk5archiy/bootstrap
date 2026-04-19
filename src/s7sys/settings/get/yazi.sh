@@ -2,7 +2,7 @@
 
 case "$(pkg-os.sh)" in
 ubuntu)
-  sudo snap íntall --clasic yazi
+  sudo snap install --clasic yazi
   ;;
 *)
   pkg-install.sh yazi
