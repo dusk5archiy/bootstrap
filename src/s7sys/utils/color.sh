@@ -34,7 +34,7 @@ xterm* | rxvt*)
 *) ;;
 esac
 
-PS1="\[\033[01m\]${ID^^}\[\033[00m\] $(if [ ! $? -eq 0 ]; then echo "\[\033[00;31m\]($?)\[\033[00m\]"; fi) ${PS1}"
+PS1="\[\033[01m\]${ID^^}\[\033[00m\] $(if [ ! $? -eq 0 ]; then echo "\[\033[00;31m\]($?)\[\033[00m\] "; fi)${PS1}"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
