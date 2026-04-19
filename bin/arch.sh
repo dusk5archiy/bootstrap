@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# pacman -Syu
+# pacman -S git
+# git clone <|project_name|>
+# cd <|projectd_name|>
+# bin/arch.sh
+
 if [[ "$HOME" != "/root" ]]; then
   exit
 fi
