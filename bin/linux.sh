@@ -2,7 +2,7 @@
 
 user="$1"
 
-if [[ -z "$user" ]]; then
+if [[ -z "$user" || "$user" == "root" ]]; then
   home_="$HOME"
 else
   home_="/home/$user"
