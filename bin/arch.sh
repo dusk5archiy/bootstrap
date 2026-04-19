@@ -5,6 +5,7 @@
 # pacman -S git
 # git clone https://github.com/dusk5archiy/bootstrap.git --depth 1
 # cd bootstrap
+# chmod +x bin/*
 # bin/arch.sh
 
 if [[ "$HOME" != "/root" ]]; then

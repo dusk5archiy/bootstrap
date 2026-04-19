@@ -8,13 +8,13 @@ else
   home_="/home/$user"
 fi
 
-if [[ "$home_" == "/root" || ! -d "$home_" ]]; then
+if [[ -z "$home_" || "$home_" == "/root" || ! -d "$home_" ]]; then
   exit
 fi
 
 rm -rf "$home_/s7sys"
 cp -r "./src"/* "$home_/"
-find "$S7SYS_DIR/s7sys" -type f -name "*.sh" -exec chmod +x {} +
+find "$home_/s7sys" -type f -name "*.sh" -exec chmod +x {} +
 
 s='. $HOME/s7sys/main.sh'
 s=$(printf '%s\n' "$s" | sed 's/[.[\*^$\/&]/\\&/g')
