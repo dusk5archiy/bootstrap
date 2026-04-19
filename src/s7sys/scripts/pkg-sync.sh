@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OS="$(pkg-os.sh)"
+OS="$(. /etc/os-release && echo $ID)"
 
 if [[ "$OS" == "msys2" || "$HOME" == "/root" ]]; then
   sudo=""

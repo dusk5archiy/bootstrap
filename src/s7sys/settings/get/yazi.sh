@@ -1,6 +1,7 @@
 #!/bin/bash
 
-case "$(pkg-os.sh)" in
+OS="$(. /etc/os-release && echo $ID)"
+case "$OS" in
 ubuntu)
   sudo snap install --clasic yazi
   ;;
@@ -11,6 +12,6 @@ esac
 
 mkdir -p "$YAZI_CONFIG_HOME"
 
-if [[ "$(pkg-os.sh)" == "msys2" ]]; then
+if [[ "$OS" == "msys2" ]]; then
   mkdir -p "$HOME/profile/AppData/Roaming/yazi/state"
 fi

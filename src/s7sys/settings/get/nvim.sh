@@ -1,4 +1,5 @@
-case "$(pkg-os.sh)" in
+OS="$(. /etc/os-release && echo $ID)"
+case "$OS" in
 arch)
   pkg-get.sh python
   pkg-install.sh \
