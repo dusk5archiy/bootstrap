@@ -1,7 +1,10 @@
 #!/bin/bash
 
 case "$(pkg-os.sh)" in
-arch | msys2)
+arch)
+  sudo pacman -Syu --noconfirm
+  ;;
+msys2)
   pacman -Syu --noconfirm
   ;;
 ubuntu)
