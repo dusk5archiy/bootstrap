@@ -1,7 +1,7 @@
 export NVIM_CONFIG_DIR="$XDG_CONFIG_HOME/nvim"
 export CUSTOM_NVIM_CONFIG_DIR="$SETTINGS_DIR/config/nvim"
 
-case "$(pkg-os.sh)" in
+case "$($S7SYS_DIR/scripts/pkg-os.sh)" in
 msys2)
   export W_CUSTOM_NVIM_CONFIG_DIR="$(cygpath -w "$CUSTOM_NVIM_CONFIG_DIR")"
   ;;
