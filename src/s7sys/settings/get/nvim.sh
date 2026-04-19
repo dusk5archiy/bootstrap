@@ -18,7 +18,7 @@ msys2)
   pkg-install.sh 7zip fd fzf gcc neovim ripgrep tree-sitter
   ;;
 ubuntu)
-  pkg-get.sh python
+  pkg-get.sh python lazygit
   $sudo add-apt-repository ppa:neovim-ppa/unstable -y
   $sudo apt update
   pkg-install.sh \
