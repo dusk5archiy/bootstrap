@@ -1,5 +1,5 @@
 pkg-sync.sh
 
-pkg-get.sh unzip
+pkg-get.sh yazi unzip
 
 init.sh
