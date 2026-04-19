@@ -15,11 +15,11 @@ set "S7SYS_DIR=%CWD%\s7sys"
 
 set "PROFILE_FILE=%MSYS2_DIR%\etc\profile"
 
-echo export ROOT_DIR=$(/usr/bin/cygpath "%CWD%") > %PROFILE_FILE%
+echo #!/bin/bash >%PROFILE_FILE%
+echo export ROOT_DIR=$(/usr/bin/cygpath "%CWD%") >>%PROFILE_FILE%
 echo export S7SYS_DIR=$(/usr/bin/cygpath "%S7SYS_DIR%") >>%PROFILE_FILE%
 echo export SETTINGS_DIR=$(/usr/bin/cygpath "%SETTINGS_DIR%") >>%PROFILE_FILE%
 echo export HOME=$(/usr/bin/cygpath "%HOME%") >>%PROFILE_FILE%
-echo source $S7SYS_DIR/main.sh >>%PROFILE_FILE%
-
+echo . $S7SYS_DIR/main.sh >>%PROFILE_FILE%
 
 %MSYS2_DIR%\usr\bin\bash -l

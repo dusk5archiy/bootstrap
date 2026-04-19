@@ -20,9 +20,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ "
 else
-  PS1='\u@\h:\w\$ '
+  PS1="\u@\h:\w\$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -34,7 +34,12 @@ xterm* | rxvt*)
 *) ;;
 esac
 
-PS1="\[\033[01m\]${ID^^}\[\033[00m\] \$(exit_code=\$?; if [ ! \$exit_code -eq 0 ]; then echo \"\[\033[00;31m\](\$exit_code)\[\033[00m\] \"; fi)${PS1}"
+OS_PART="\[\033[01;33m\]${ID^^}\[\033[00m\]"
+ERR_PART="\$(exit_code=\$?; if [ ! \$exit_code -eq 0 ]; then echo \" \[\033[00;31m\](\$exit_code)\[\033[00m\]\"; else echo \" \[\033[00;36m\](\$exit_code)\[\033[00m\]\"; fi)"
+TIME_PART=" \$(date +%Y-%m-%d) \t"
+PREFIX="$OS_PART$ERR_PART$TIME_PART"
+PS1="$PREFIX
+$PS1"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
