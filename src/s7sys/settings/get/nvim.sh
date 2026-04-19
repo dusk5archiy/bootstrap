@@ -22,6 +22,7 @@ ubuntu)
   pkg-install.sh \
     fd-find fzf gcc git ripgrep unzip npm snapd
 
+  $sudo systemctl start snapd
   $sudo snap install --classic nvim
   $sudo snap install --classic node
 
