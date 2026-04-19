@@ -15,5 +15,6 @@ ubuntu)
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LAZYGIT_ARCH}.tar.gz"
   tar xf lazygit.tar.gz lazygit
   $sudo install lazygit -D -t /usr/local/bin/
+  rm -f lazygit lazygit.tar.gz
   ;;
 esac
