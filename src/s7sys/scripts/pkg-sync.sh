@@ -1,14 +1,19 @@
 #!/bin/bash
 
-case "$(pkg-os.sh)" in
-arch)
-  sudo pacman -Syu --noconfirm
-  ;;
-msys2)
-  pacman -Syu --noconfirm
+OS="$(pkg-os.sh)"
+
+if [[ "$OS" == "msys2" || "$HOME" == "/root" ]]; then
+  sudo=""
+else
+  sudo="sudo"
+fi
+
+case "$OS" in
+arch | msys2)
+  $sudo pacman -Syu --noconfirm
   ;;
 ubuntu)
-  apt update
-  apt upgrade -y
+  $sudo apt update
+  $sudo apt upgrade -y
   ;;
 esac

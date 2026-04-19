@@ -8,7 +8,6 @@ fi
 case "$(pkg-os.sh)" in
 msys2)
   packages=("${packages[@]/#/mingw-w64-ucrt-x86_64-}")
-  pacman -S --noconfirm --needed "${packages[@]}"
   ;;
 esac
 
