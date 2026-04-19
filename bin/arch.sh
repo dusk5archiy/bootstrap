@@ -1,7 +1,4 @@
-# git clone https://github.com/dusk5archiy/bootstrap
-# cd bootstrap
-# chmod +x bin/*
-# ./arch.sh
+#!/bin/bash
 
 if [[ "$HOME" != "/root" ]]; then
   exit
@@ -32,5 +29,8 @@ pacman -S --noconfirm \
   sudo vim less which
 # Make sure that every users of group wheel can run sudo without passwords
 sed -i '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /etc/sudoers # Basically, this command below is to uncomment a line.
+
+bin/linux.sh $username_
+
 echo "</> Setup completed."
 echo "Run 'exit', then 'wsl --shutdown' to shut down wsl, then start wsl again."

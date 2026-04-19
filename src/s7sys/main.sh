@@ -31,7 +31,7 @@ export TEMP="$TMP"
 export APPS_DIR="$SETTINGS_DIR/apps"
 
 if [[ "$ID" == "msys2" ]]; then
-  export APPDATA=$(cygpath -w "$HOME/AppData/Roaming")
+  export APPDATA="$(cygpath -w "$HOME/AppData/Roaming")"
   export LOCALAPPDATA=$(cygpath -w "$HOME/AppData/Local")
   export ORIGINAL_USERPROFILE="/$SYSTEM_DRIVE_LETTER/Users/$(/usr/bin/whoami)"
   export USERPROFILE=$(cygpath -w "$HOME/profile")

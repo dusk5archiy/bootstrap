@@ -9,8 +9,6 @@ ubuntu)
   ;;
 esac
 
-. apply-env.sh
-
 mkdir -p "$YAZI_CONFIG_HOME"
 
 if [[ "$(pkg-os.sh)" == "msys2" ]]; then

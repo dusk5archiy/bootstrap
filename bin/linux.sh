@@ -1,22 +1,26 @@
 #!/bin/bash
-# git clone https://github.com/dusk5archiy/new
-# cd new
-# chmod +x new.arch.sh
-# ./new.arch.sh
 
-if [[ "$HOME" == "/root" ]]; then
+user="$1"
+
+if [[ -z "$user" ]]; then
+  home_="$HOME"
+else
+  home_="/home/$user"
+fi
+
+if [[ "$home_" == "/root" || ! -d "$home_" ]]; then
   exit
 fi
 
-rm -rf "$HOME/s7sys"
-cp -r "./src"/* "$HOME/"
+rm -rf "$home_/s7sys"
+cp -r "./src"/* "$home_/"
 find "$S7SYS_DIR/s7sys" -type f -name "*.sh" -exec chmod +x {} +
 
 s='. $HOME/s7sys/main.sh'
 s=$(printf '%s\n' "$s" | sed 's/[.[\*^$\/&]/\\&/g')
-sed -i "/^${s}$/d" $HOME/.bashrc
+sed -i "/^${s}$/d" $home_/.bashrc
 
-sudo tee -a $HOME/.bashrc >>/dev/null <<'EOF'
+sudo tee -a $home_/.bashrc >>/dev/null <<'EOF'
 . $HOME/s7sys/main.sh
 EOF
 

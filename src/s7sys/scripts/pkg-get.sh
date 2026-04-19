@@ -1,9 +1,24 @@
-app_name="$1"
-if [[ -z "$app_name" ]]; then
-  read -p "Enter app name: " app_name
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  read -p "Enter app names: " -a apps
+else
+  apps=("$@")
 fi
 
-pkg-config.sh $app_name
-. "$S7SYS_DIR/get/$app_name.sh"
+for app_name in "${apps[@]}"; do
+  echo "Processing: $app_name"
 
-echo "Restart the shell to finish the installation."
+  pkg-config.sh "$app_name"
+  . apply-env.sh
+
+  file="$S7SYS_DIR/settings/get/$app_name.sh"
+  if [[ -f "$file" ]]; then
+    . "$file"
+    echo "Restart the shell to finish the installation for $app_name."
+  else
+    echo "Application '$app_name' not found."
+  fi
+
+  echo "------------------------"
+done

@@ -1,10 +1,5 @@
 pkg-sync.sh
 
-OS=$(pkg-os.sh)
-case "$OS" in
-msys2)
-  pacman -S --noconfirm --needed unzip
-  ;;
-esac
+pkg-get.sh unzip
 
 init.sh
