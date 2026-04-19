@@ -1,9 +1,10 @@
 #!/bin/bash
 
+# cd
 # pacman -Syu
 # pacman -S git
-# git clone <|project_name|>
-# cd <|projectd_name|>
+# git clone https://github.com/dusk5archiy/bootstrap.git --depth 1
+# cd bootstrap
 # bin/arch.sh
 
 if [[ "$HOME" != "/root" ]]; then
