@@ -9,7 +9,7 @@
 
 # -----------------------------------------------------------------------------
 
-mkdir -p "$XDG_CONFIG_HOME" \
+/usr/bin/mkdir -p "$XDG_CONFIG_HOME" \
   "$XDG_DATA_HOME" \
   "$XDG_CACHE_HOME" \
   "$XDG_STATE_HOME" \
@@ -19,7 +19,7 @@ mkdir -p "$XDG_CONFIG_HOME" \
 # -----------------------------------------------------------------------------
 
 if [[ "$ID" == "msys2" ]]; then
-  mkdir -p "$HOME/AppData" \
+  /usr/bin/mkdir -p "$HOME/AppData" \
     "$APPDATA" \
     "$LOCALAPPDATA" \
     "$USERPROFILE" \
@@ -27,9 +27,9 @@ if [[ "$ID" == "msys2" ]]; then
     "$DOCUMENTS" \
     "$ORIGINAL_HOME" \
     "$ORIGINAL_HOME/.ssh"
-  touch "$ORIGINAL_HOME/.ssh/authorized_keys"
+  /usr/bin/touch "$ORIGINAL_HOME/.ssh/authorized_keys"
 else
-  mkdir -p "$HOME/.ssh"
+  /usr/bin/mkdir -p "$HOME/.ssh"
 fi
 
 # -----------------------------------------------------------------------------

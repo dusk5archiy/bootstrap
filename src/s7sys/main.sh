@@ -40,17 +40,23 @@ if [[ "$ID" == "msys2" ]]; then
   export ORIGINAL_HOME="/home/$(/usr/bin/whoami)"
 fi
 
+"$S7SYS_DIR/scripts/init.sh"
+
 # -----------------------------------------------------------------------------
 
 . $S7SYS_DIR/scripts/apply-env.sh
 . $S7SYS_DIR/scripts/apply-init.sh
 . $S7SYS_DIR/scripts/apply-path.sh
-end=$(/usr/bin/date +%s%3N)
-duration=$((end - start))
-echo "Startup Duration: $duration ms"
+
+# -----------------------------------------------------------------------------
+if [[ "$OS" != "msys2" ]]; then
+  "$S7SYS_DIR/utils/color.sh"
+fi
 
 # -----------------------------------------------------------------------------
 
-alias ls='ls --color=tty'
+end=$(/usr/bin/date +%s%3N)
+duration=$((end - start))
+echo "Startup Duration: $duration ms"
 
 # -----------------------------------------------------------------------------
