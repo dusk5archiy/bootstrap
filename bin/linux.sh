@@ -8,7 +8,7 @@ else
   home_="/home/$user"
 fi
 
-if [[ -z "$home_" || "$home_" == "/root" || ! -d "$home_" ]]; then
+if [[ -z "$home_" || ! -d "$home_" ]]; then
   exit
 fi
 
