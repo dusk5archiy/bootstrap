@@ -1,4 +1,11 @@
 OS="$(. /etc/os-release && echo $ID)"
+
+if [[ "$OS" == "msys2" || "$HOME" == "/root" ]]; then
+  sudo=""
+else
+  sudo="sudo"
+fi
+
 case "$OS" in
 arch)
   pkg-get.sh python
@@ -15,12 +22,12 @@ ubuntu)
   pkg-install.sh \
     fd-find fzf gcc git ripgrep unzip npm
 
-  sudo snap install --classic nvim
-  sudo snap install --classic node
+  $sudo snap install --classic nvim
+  $sudo snap install --classic node
 
-  sudo npm cache clean --force
-  sudo npm install -g tree-sitter-cli
-  sudo npm install -g neovim
+  $sudo npm cache clean --force
+  $sudo npm install -g tree-sitter-cli
+  $sudo npm install -g neovim
   ;;
 *) ;;
 esac
