@@ -2,7 +2,7 @@
 
 user="$1"
 
-if [[ -z "$user" || "$user" == "root" ]]; then
+if [[ -z "$user" ]]; then
   home_="$HOME"
 else
   home_="/home/$user"
@@ -13,7 +13,7 @@ if [[ -z "$home_" || ! -d "$home_" ]]; then
 fi
 
 sudo="sudo"
-if [[ "home_" == "/root" ]]; then
+if [[ "$HOME" == "/root" ]]; then
   sudo=""
 fi
 
