@@ -5,7 +5,7 @@ if [[ ${#packages[@]} -eq 0 ]]; then
   exit
 fi
 
-OS="$(. /etc/os-release && echo $ID)"
+OS="$(get-os.sh)"
 
 if [[ "$OS" == "msys2" || "$HOME" == "/root" ]]; then
   sudo=""
@@ -14,7 +14,7 @@ else
 fi
 
 case "$OS" in
-arch)
+arch | msys2)
   $sudo pacman -S --noconfirm --needed "${packages[@]}"
   ;;
 ubuntu)

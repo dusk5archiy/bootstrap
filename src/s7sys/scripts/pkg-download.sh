@@ -25,14 +25,12 @@ cd "$APPS_DIR"
 
 # -----------------------------------------------------------------------------
 
-file="$(basename "$url")"
+file=$(curl -L -w "%{filename_effective}" -O -J "$url")
 ext="${file##*.}"
 
 if [[ "$file" == "$ext" || "$file" == ".$ext" ]]; then
   ext=""
 fi
-
-curl -L -O "$url"
 
 if [ ! -f "$file" ]; then
   echo "Error: Failed to download the file."

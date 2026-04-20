@@ -18,7 +18,7 @@ if [[ "$HOME" == "/root" ]]; then
 fi
 
 rm -rf "$home_/s7sys"
-cp -r "./src"/* "$home_/"
+cp -r "./src/s7sys" "$home_/"
 find "$home_/s7sys" -type f -name "*.sh" -exec chmod +x {} +
 
 s='. $HOME/s7sys/main.sh'

@@ -1,4 +1,4 @@
-OS="$(. /etc/os-release && echo $ID)"
+OS="$(get-os.sh)"
 case "$OS" in
 msys2)
   pkg-raw-install.sh unzip

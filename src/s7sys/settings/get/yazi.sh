@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OS="$(. /etc/os-release && echo $ID)"
+OS="$(get-os.sh)"
 case "$OS" in
 ubuntu)
   sudo snap install --clasic yazi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OS="$(. /etc/os-release && echo $ID)"
+OS="$(get-os.sh)"
 case "$OS" in
 ubuntu)
   pkg-install.sh python3 python3-venv python-is-python3
