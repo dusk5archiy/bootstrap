@@ -1,3 +1,7 @@
 #!/bin/bash
 
-zip ".ssh.zip" -j -r "$ORIGINAL_HOME/.ssh"
+case "$(get-os.sh)" in
+msys2)
+  zip ".ssh.zip" -j -r "$HOME/.ssh" -x "$HOME/.ssh/agent/*"
+  ;;
+esac
