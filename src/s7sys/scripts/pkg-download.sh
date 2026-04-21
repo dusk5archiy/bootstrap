@@ -25,7 +25,8 @@ cd "$APPS_DIR"
 
 # -----------------------------------------------------------------------------
 
-file=$(curl -L -w "%{filename_effective}" -O -J "$url")
+file=$(curl -L -w "%{filename_effective}" -O -J "$url" || true)
+echo "File is saved at $(realpath "$file")"
 ext="${file##*.}"
 
 if [[ "$file" == "$ext" || "$file" == ".$ext" ]]; then
