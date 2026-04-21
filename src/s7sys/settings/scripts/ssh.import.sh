@@ -5,7 +5,11 @@ if [[ -f "file" ]]; then
   exit
 fi
 
-unzip -q "$file" -d "$ORIGINAL_HOME/.ssh"
+OUTPUT_DIR="$TMP/.ssh"
+unzip -q "$file" -d "$OUTPUT_DIR"
+cp -r "$OUTPUT_DIR"/* "$ORIGINAL_HOME/.ssh/"
+cp -r "$OUTPUT_DIR"/* "$HOME/.ssh/"
+rm -rf "$OUTPUT_DIR"
 
 eval "$(ssh-agent -s)"
 ssh-add "$ORIGINAL_HOME/.ssh/id_ed25519"
