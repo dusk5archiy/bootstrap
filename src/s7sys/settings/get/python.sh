@@ -1,7 +1,6 @@
 #!/bin/bash
 
-OS="$(get-os.sh)"
-case "$OS" in
+case "$(get-os.sh)" in
 ubuntu)
   pkg-install.sh python3 python3-venv python-is-python3
   ;;

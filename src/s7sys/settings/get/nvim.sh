@@ -13,7 +13,7 @@ arch)
     7zip fd fzf gcc git lazygit neovim nodejs ripgrep tree-sitter unzip npm
   ;;
 msys2)
-  pkg-get.sh git node pwsh python unzip
+  pkg-get.sh git lazygit node pwsh python unzip
   pkg-raw-install.sh cygutils
   pkg-install.sh 7zip fd fzf gcc neovim ripgrep tree-sitter
   ;;

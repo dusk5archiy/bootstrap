@@ -17,4 +17,8 @@ ubuntu)
   $sudo install lazygit -D -t /usr/local/bin/
   rm -f lazygit lazygit.tar.gz
   ;;
+msys2)
+  pkg-download.sh lazygit \
+    "https://github.com/jesseduffield/lazygit/releases/download/v0.61.1/lazygit_0.61.1_windows_x86_64.zip"
+  ;;
 esac

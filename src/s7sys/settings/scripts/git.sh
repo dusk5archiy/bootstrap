@@ -1,3 +1,5 @@
+#!/bin/bash
+
 read -p "Name: " name_
 read -p "Email: " email_
 
