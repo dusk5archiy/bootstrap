@@ -8,6 +8,6 @@ arch)
   pkg-install.sh python
   ;;
 msys2)
-  pkg-get.sh conda
+  pkg-install.sh python
   ;;
 esac
