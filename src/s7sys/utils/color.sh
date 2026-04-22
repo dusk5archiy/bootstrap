@@ -34,10 +34,21 @@ xterm* | rxvt*)
 *) ;;
 esac
 
+case "$ID" in
+msys2)
+  ICON="  "
+  ;;
+ubuntu)
+  ICON="  "
+  ;;
+*)
+  ICON="  "
+  ;;
+esac
 OS_PART="\[\033[01;33m\]${ID^^}\[\033[00m\]"
 ERR_PART="\$(exit_code=\$?; if [ ! \$exit_code -eq 0 ]; then echo \" \[\033[00;31m\](\$exit_code)\[\033[00m\]\"; else echo \" \[\033[00;36m\](\$exit_code)\[\033[00m\]\"; fi)"
 TIME_PART=" \$(date +%Y-%m-%d) \t"
-PREFIX="$OS_PART$ERR_PART$TIME_PART"
+PREFIX="${ICON}${OS_PART}${ERR_PART}${TIME_PART}"
 PS1="$PREFIX
 $PS1"
 

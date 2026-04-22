@@ -1,1 +1,1 @@
-addpath "$USERPROFILE\\AppData\\Local\\Programs\\LM Studio"
+addpath "$(cygpath -u "$USERPROFILE\\AppData\\Local\\Programs\\LM Studio")"

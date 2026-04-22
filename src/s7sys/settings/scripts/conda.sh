@@ -1,1 +1,3 @@
-. $USERPROFILE/miniconda3/Scripts/activate
+#!/bin/bash
+
+. "${USERPROFILE}\\miniconda3\\Scripts\\activate"
