@@ -1,2 +1,5 @@
 export ANTHROPIC_BASE_URL="http://localhost:1234"
 export ANTHROPIC_AUTH_TOKEN="lmstudio"
+export COPILOT_PROVIDER_BASE_URL="http://localhost:1234/v1"
+export COPILOT_MODEL="google/gemma-4-e2b"
+export COPILOT_OFFLINE="true"

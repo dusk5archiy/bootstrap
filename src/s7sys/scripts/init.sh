@@ -27,6 +27,7 @@ if [[ "$ID" == "msys2" ]]; then
     "$APPDATA" \
     "$LOCALAPPDATA" \
     "$USERPROFILE" \
+    "$USERPROFILE/AppData/Local/Temp" \
     "$DESKTOP" \
     "$DOCUMENTS" \
     "$ORIGINAL_HOME" \
