@@ -22,7 +22,7 @@ ubuntu)
   $sudo add-apt-repository ppa:neovim-ppa/unstable -y
   $sudo apt update
   pkg-install.sh \
-    fd-find fzf gcc git ripgrep unzip neovim npm
+    fd-find fzf gcc git ripgrep unzip neovim npm wl-clipboard
 
   # pkg-install.sh snapd
   # $sudo systemctl start snapd

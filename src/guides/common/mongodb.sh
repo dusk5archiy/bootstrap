@@ -1,0 +1,1 @@
+mongod -f "<|cfg-file|>"
