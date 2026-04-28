@@ -46,8 +46,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$SETTINGS_DIR/scripts:$S7SYS_DIR/scripts:$PATH"
 find "$SETTINGS_DIR/scripts" -type f -name "*.sh" -exec chmod +x {} +
 . $S7SYS_DIR/scripts/apply-env.sh
-. $S7SYS_DIR/scripts/apply-init.sh
 . $S7SYS_DIR/scripts/apply-path.sh
+. $S7SYS_DIR/scripts/apply-init.sh
 
 # -----------------------------------------------------------------------------
 
