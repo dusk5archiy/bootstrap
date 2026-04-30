@@ -42,26 +42,4 @@ return {
 			},
 		},
 	},
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		opts = {
-			-- See Configuration section for options
-			providers = {
-				my_provider = {
-					get_url = function(opts)
-						return "http://localhost:1234/v1/chat"
-					end,
-					get_headers = function()
-						local api_key = "lm_studio"
-						return { ["Authorization"] = "Bearer " .. api_key }
-					end,
-					get_models = function()
-						return { { id = "google/gemma-4-e2b", name = "Gemma 4 E2B" } }
-					end,
-					prepare_input = require("CopilotChat.config.providers").copilot.prepare_input,
-					prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
-				},
-			},
-		},
-	},
 }
