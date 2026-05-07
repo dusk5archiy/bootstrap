@@ -28,7 +28,7 @@ ubuntu)
   ;;
 esac
 
-useradd -m -G "$group" "$username_" # create a user of group named 'wheel'
+useradd -m -G "$group_" "$username_" # create a user of group named 'wheel'
 
 echo "root:$password_" | chpasswd
 echo "$username_:$password_" | chpasswd
@@ -55,7 +55,7 @@ ubuntu)
 esac
 
 # Make sure that every users of the group can run sudo without passwords
-sed -i "/^# %$group ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //" /etc/sudoers # Basically, this command below is to uncomment a line.
+sed -i "/^# %$group_ ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //" /etc/sudoers # Basically, this command below is to uncomment a line.
 
 bin/linux.sh $username_
 
