@@ -29,12 +29,19 @@ default=$username_
 EOF
 echo "</> Accounts configurated successfully."
 
-localedef -i en_US -f UTF-8 en_US.UTF-8 # create locale files
+OS="$("/etc/os-release" && echo "$ID")"
+case "$OS" in
+arch)
+  localedef -i en_US -f UTF-8 en_US.UTF-8 # create locale files
+  echo "<> Setting up package manager..."
+  pacman -Syu --noconfirm
+  pacman -S --noconfirm \
+    sudo vim less which
+  ;;
+ubuntu)
+  ;;
+esac
 
-echo "<> Setting up package manager..."
-pacman -Syu --noconfirm
-pacman -S --noconfirm \
-  sudo vim less which
 # Make sure that every users of group wheel can run sudo without passwords
 sed -i '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /etc/sudoers # Basically, this command below is to uncomment a line.
 

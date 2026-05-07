@@ -21,9 +21,9 @@ rm -rf "$home_/s7sys"
 cp -r "./src/s7sys" "$home_/"
 find "$home_/s7sys" -type f -name "*.sh" -exec chmod +x {} +
 
-s='. $HOME/s7sys/main.sh'
-s=$(printf '%s\n' "$s" | sed 's/[.[\*^$\/&]/\\&/g')
-sed -i "/^${s}$/d" $home_/.bashrc
+content='. $HOME/s7sys/main.sh'
+content=$(printf '%s\n' "$content" | sed 's/[.[\*^$\/&]/\\&/g')
+sed -i "/^${content}$/d" $home_/.bashrc
 
 $sudo tee -a $home_/.bashrc >>/dev/null <<'EOF'
 . $HOME/s7sys/main.sh
