@@ -12,12 +12,25 @@ if [[ "$HOME" != "/root" ]]; then
   exit
 fi
 
+OS="$(. "/etc/os-release" && echo "$ID")"
+
 echo "<> Create a new account"
 read -p "Username: " username_
 read -s -p "Password: " password_
 echo ""
+
+case "$OS" in
+arch)
+  group_=wheel
+  ;;
+ubuntu)
+  group_=sudo
+  ;;
+esac
+
+useradd -m -G "$group" "$username_" # create a user of group named 'wheel'
+
 echo "root:$password_" | chpasswd
-useradd -m -G wheel $username_ # create a user of group named 'wheel'
 echo "$username_:$password_" | chpasswd
 # set up default user
 cat <<EOF >/etc/wsl.conf
@@ -29,7 +42,6 @@ default=$username_
 EOF
 echo "</> Accounts configurated successfully."
 
-OS="$("/etc/os-release" && echo "$ID")"
 case "$OS" in
 arch)
   localedef -i en_US -f UTF-8 en_US.UTF-8 # create locale files
@@ -42,8 +54,8 @@ ubuntu)
   ;;
 esac
 
-# Make sure that every users of group wheel can run sudo without passwords
-sed -i '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /etc/sudoers # Basically, this command below is to uncomment a line.
+# Make sure that every users of the group can run sudo without passwords
+sed -i "/^# %$sudo ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //" /etc/sudoers # Basically, this command below is to uncomment a line.
 
 bin/linux.sh $username_
 
