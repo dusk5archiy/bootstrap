@@ -3,7 +3,7 @@
 OS="$(get-os.sh)"
 case "$OS" in
 ubuntu)
-  sudo snap install --clasic yazi
+  sudo snap install --classic yazi
   ;;
 *)
   pkg-install.sh yazi
