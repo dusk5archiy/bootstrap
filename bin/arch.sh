@@ -24,7 +24,7 @@ arch)
   group_=wheel
   ;;
 ubuntu)
-  group_=sudo
+  group_=users
   ;;
 esac
 
