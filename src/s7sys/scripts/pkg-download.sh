@@ -54,7 +54,7 @@ zip)
   echo "Extracting..."
   unzip -q "$file" -d "$INSTALL_DIR"
   ;;
-exe)
+*)
   "./$file" "${args[@]}"
   ;;
 esac
