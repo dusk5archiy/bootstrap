@@ -7,4 +7,7 @@ msys2)
   pkg-download.sh "conda" "$url" \
     //NoRegistry=1 //AddToPath=0 //NoShortcuts=1 //RegisterPython=0 //S
   ;;
+*)
+  pkg-download.sh "conda" "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+  ;;
 esac
