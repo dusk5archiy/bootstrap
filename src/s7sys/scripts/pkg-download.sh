@@ -55,6 +55,7 @@ zip)
   unzip -q "$file" -d "$INSTALL_DIR"
   ;;
 *)
+  chmod +x "$file"
   "./$file" "${args[@]}"
   ;;
 esac
