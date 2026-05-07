@@ -24,7 +24,7 @@ arch)
   group_=wheel
   ;;
 ubuntu)
-  group_=users
+  group_=sudo
   ;;
 esac
 
@@ -55,7 +55,7 @@ ubuntu)
 esac
 
 # Make sure that every users of the group can run sudo without passwords
-sed -i "/^# %$sudo ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //" /etc/sudoers # Basically, this command below is to uncomment a line.
+sed -i "/^# %$group ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //" /etc/sudoers # Basically, this command below is to uncomment a line.
 
 bin/linux.sh $username_
 
