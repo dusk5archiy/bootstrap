@@ -19,10 +19,16 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-  PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ "
+if [[ -n "$(command -v getent)" ]] && id -G | grep -q "$(getent -w group 'S-1-16-12288' | cut -d: -f2)"; then
+  _ps1_symbol="#"
 else
-  PS1="\u@\h:\w\$ "
+  _ps1_symbol='\$'
+fi
+
+if [ "$color_prompt" = yes ]; then
+  PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n$_ps1_symbol "
+else
+  PS1="\u@\h:\w $_ps1_symbol "
 fi
 unset color_prompt force_color_prompt
 
@@ -41,8 +47,11 @@ msys2)
 ubuntu)
   ICON="  "
   ;;
-*)
+arch)
   ICON="  "
+  ;;
+*)
+  ICON="  "
   ;;
 esac
 OS_PART="\[\033[01;33m\]${ID^^}\[\033[00m\]"
