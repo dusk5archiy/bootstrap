@@ -24,11 +24,6 @@ ubuntu)
   pkg-install.sh \
     fd-find fzf gcc g++ git ripgrep unzip neovim npm wl-clipboard
 
-  # pkg-install.sh snapd
-  # $sudo systemctl start snapd
-  # $sudo snap install --classic nvim
-  # $sudo snap install --classic node
-
   $sudo npm cache clean --force
   $sudo npm install -g tree-sitter-cli
   $sudo npm install -g neovim
