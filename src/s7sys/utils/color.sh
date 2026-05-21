@@ -19,7 +19,7 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
-if [[ -n "$(command -v getent)" ]] && ([[ "$ID" != "msys2" ]] || (id -G | grep -q "$(getent -w group 'S-1-16-12288' | cut -d: -f2)")); then
+if [[ -n "$(command -v getent)" ]] && ([[ "$HOME" == "/root" ]] || (id -G | grep -q "$(getent -w group 'S-1-16-12288' | cut -d: -f2)")); then
   _ps1_symbol="#"
 else
   _ps1_symbol='\$'
