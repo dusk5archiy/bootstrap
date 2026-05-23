@@ -15,6 +15,7 @@ msys2)
   ;;
 esac
 cp -r "$OUTPUT_DIR/.ssh"/* "$HOME/.ssh/"
+chmod 700 "$HOME/.ssh/"*
 rm -rf "$OUTPUT_DIR"
 
 eval "$(ssh-agent -s)"
