@@ -1,1 +1,1 @@
-export WEZTERM_CONFIG_FILE="$S7SYS_DIR/wezterm/wezterm.lua"
+export WEZTERM_CONFIG_FILE="$SETTINGS_DIR/config/wezterm/wezterm.lua"

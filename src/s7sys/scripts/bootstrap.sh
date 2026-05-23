@@ -1,5 +1,6 @@
 pkg-sync.sh
 
-pkg-get.sh ssh unzip yazi
+pkg-get.sh ssh unzip
+pkg-install.sh curl
 
 init.sh

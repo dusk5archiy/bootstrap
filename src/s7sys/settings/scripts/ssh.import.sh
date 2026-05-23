@@ -11,10 +11,10 @@ OUTPUT_DIR="$TMP/.ssh"
 unzip -q "$file" -d "$OUTPUT_DIR"
 case "$(get-os.sh)" in
 msys2)
-  cp -r "$OUTPUT_DIR"/* "$ORIGINAL_HOME/.ssh/"
+  cp -r "$OUTPUT_DIR/.ssh"/* "$ORIGINAL_HOME/.ssh/"
   ;;
 esac
-cp -r "$OUTPUT_DIR"/* "$HOME/.ssh/"
+cp -r "$OUTPUT_DIR/.ssh"/* "$HOME/.ssh/"
 rm -rf "$OUTPUT_DIR"
 
 eval "$(ssh-agent -s)"

@@ -1,12 +1,7 @@
 #!/bin/bash
 
 OS="$(get-os.sh)"
-
-if [[ "$OS" == "msys2" || "$HOME" == "/root" ]]; then
-  sudo=""
-else
-  sudo="sudo"
-fi
+sudo="$(get-sudo.sh)"
 
 case "$OS" in
 arch | msys2)
