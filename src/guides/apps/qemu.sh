@@ -15,7 +15,7 @@ qemu-system-x86_64 \
 ## Linux / WSL
 
 ## For WSL, open MSYS2 and run
-# wsl --mount \\\\.\\PhysicalDrive# --bare
+# wsl --mount --bare \\\\.\\physicaldrive#
 ## where # is the ordinal number of the drive
 
 ## In ubuntu
