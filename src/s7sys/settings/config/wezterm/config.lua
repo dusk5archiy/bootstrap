@@ -36,7 +36,7 @@ function M.getConfigs(override_configs)
 		font_size = 10,
 		force_reverse_video_cursor = true,
 		freetype_load_target = "Light", -- "Normal" | "Light" | "Mono"
-		front_end = "WebGpu", -- "OpenGL" | "WebGpu" | "Software"
+		front_end = "Software", -- "OpenGL" | "WebGpu" | "Software"
 		initial_cols = 100,
 		initial_rows = 20,
 		set_environment_variables = {},

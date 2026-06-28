@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config_dir = wezterm.config_dir
 
-local helper = dofile(config_dir .. "/helper.lua")
+local config = dofile(config_dir .. "/config.lua")
 
 local data = {}
 
@@ -15,4 +15,4 @@ if os_is_windows() then
 	}
 end
 
-return helper.getConfigs(data)
+return config.getConfigs(data)
